@@ -1,0 +1,21 @@
+name: Run Robot Framework Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set Up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: pip install robotframework robotframework-requests
+
+    - name: Run Tests
+      run: robot test_my_app.robot
