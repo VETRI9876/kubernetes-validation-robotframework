@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-19T12:48:45.946649" rpa="false" schemaversion="5">
+<suite id="s1" name="Test My App" source="D:\DevOps\IQVIA\Kubernetes Validation using Robot Framework\test_my_app.robot">
+<test id="s1-t1" name="Verify My-App Service" line="9">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-03-19T12:48:46.868655" level="INFO">GET Request : url=http://48.216.187.233/ 
+ path_url=/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-19T12:48:46.868784" level="INFO">GET Response : url=http://48.216.187.233/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.27.4', 'Date': 'Wed, 19 Mar 2025 07:18:48 GMT', 'Content-Type': 'text/html', 'Content-Length': '615', 'Last-Modified': 'Wed, 05 Feb 2025 11:06:32 GMT', 'Connection': 'keep-alive', 'ETag': '"67a34638-267"', 'Accept-Ranges': 'bytes'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+&lt;style&gt;
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.&lt;/p&gt;
+
+&lt;p&gt;For online documentation and support please refer to
+&lt;a href="http://nginx.org/"&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+Commercial support is available at
+&lt;a href="http://nginx.com/"&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-03-19T12:48:46.868918" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${SERVICE_URL}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-03-19T12:48:46.428478" elapsed="0.440466"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-19T12:48:46.870093" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-19T12:48:46.869570" elapsed="0.000580"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-03-19T12:48:46.870861" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-03-19T12:48:46.870468" elapsed="0.000456"/>
+</kw>
+<doc>Ensure the app is accessible</doc>
+<status status="PASS" start="2025-03-19T12:48:46.427423" elapsed="0.443724"/>
+</test>
+<status status="PASS" start="2025-03-19T12:48:45.948124" elapsed="0.923547"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test My App" id="s1" pass="1" fail="0" skip="0">Test My App</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
